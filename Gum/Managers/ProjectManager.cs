@@ -118,8 +118,6 @@ namespace Gum
                 }
                 else if (!isShift && !string.IsNullOrEmpty(GeneralSettingsFile.LastProject))
                 {
-                    _fileCommands.LoadProject(GeneralSettingsFile.LastProject);
-
                     if(GumProjectSave == null)
                     {
                         // we tried loading the last file, it didn't load. If it doesn't exist, let's remove it from the last project file:
@@ -130,6 +128,8 @@ namespace Gum
                             GeneralSettingsFile.Save();
                         }
                     }
+                    
+                    _fileCommands.LoadProject(GeneralSettingsFile.LastProject);
                 }
                 else
                 {
